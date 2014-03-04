@@ -1,19 +1,65 @@
-# Kohana PHP Framework
+Kommerce
+========
 
-[Kohana](http://kohanaframework.org/) is an elegant, open source, and object oriented HMVC framework built using PHP5, by a team of volunteers. It aims to be swift, secure, and small.
+Kohana PHP E-commerce Platform
 
-Released under a [BSD license](http://kohanaframework.org/license), Kohana can be used legally for any open source, commercial, or personal project.
+## Introduction
 
-## Documentation
-Kohana's documentation can be found at <http://kohanaframework.org/documentation> which also contains an API browser.
+Zen Kommerce is a PHP shopping cart system written in the Kohana framework.
+More information can be found [here](http://inklabs.github.io/kommerce/).
 
-The `userguide` module included in all Kohana releases also allows you to view the documentation locally. Once the `userguide` module is enabled in the bootstrap, it is accessible from your site via `/index.php/guide` (or just `/guide` if you are rewriting your URLs).
+## Vagrant Setup
 
-## Reporting bugs
-If you've stumbled across a bug, please help us out by [reporting the bug](http://dev.kohanaframework.org/projects/kohana3/) you have found. Simply log in or register and submit a new issue, leaving as much information about the bug as possible, e.g.
+<pre>
+	vagrant up
+</pre>
 
-* Steps to reproduce
-* Expected result
-* Actual result
+* Then visit [http://127.0.0.1:4567](http://127.0.0.1:4567)
 
-This will help us to fix the bug as quickly as possible, and if you'd like to fix it yourself feel free to [fork us on GitHub](https://github.com/kohana) and submit a pull request!
+## Local Setup
+
+* Download Maxmind DB
+
+<pre>
+	./run_minion.sh "--task=Maxmind:GeoLite2 --city=1"
+</pre>
+
+## Code Tests
+
+* Codeception
+	- All acceptance tests are verified to work with the PhpBrowser.
+	- http://codeception.com/quickstart
+
+<pre>
+	# run all tests from the project root
+	./run_tests.sh
+
+	# run only unit tests
+	./run_tests.sh unit
+
+	# run only acceptance tests
+	./run_tests.sh acceptance
+
+	# run single test
+	./run_tests.sh tests/acceptance/101WelcomeCept.php
+	./run_tests.sh "tests/acceptance/101WelcomeCept.php --steps"
+</pre>
+
+* Selenium
+	- You can run the acceptance tests in Selenium; however, not all tests are verified to work.
+	- Edit tests/acceptance.suite.yml to enable Selenium2 and comment out PhpBrowser and WebHelper.
+
+<pre>
+	SELENIUM=selenium-server-standalone-2.33.0.jar
+	wget http://selenium.googlecode.com/files/$SELENIUM
+	mv $SELENIUM ~/bin/
+	chmod +x ~/bin/
+
+	# in a separate terminal
+	java -jar ~/bin/$SELENIUM
+</pre>
+
+## License
+
+[Copyright Ink Labs, LLC](https://github.com/inklabs/kommerce/blob/master/license.txt)
+All Rights Reserved.

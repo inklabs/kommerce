@@ -1,0 +1,1 @@
+exclude = "{$exclude,application/cache,application/logs,application/data,www/data,tests/_log,tests/_data}"

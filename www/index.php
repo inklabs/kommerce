@@ -6,14 +6,14 @@
  *
  * @link http://kohanaframework.org/guide/about.install#application
  */
-$application = 'application';
+$application = '../application';
 
 /**
  * The directory in which your modules are located.
  *
  * @link http://kohanaframework.org/guide/about.install#modules
  */
-$modules = 'modules';
+$modules = '../modules';
 
 /**
  * The directory in which the Kohana resources are located. The system
@@ -21,7 +21,9 @@ $modules = 'modules';
  *
  * @link http://kohanaframework.org/guide/about.install#system
  */
-$system = 'system';
+$system = '../system';
+
+$kommerce_modules = '../kommerce_modules';
 
 /**
  * The default extension of resource files. If you change this, all resources
@@ -72,15 +74,16 @@ if ( ! is_dir($system) AND is_dir(DOCROOT.$system))
 define('APPPATH', realpath($application).DIRECTORY_SEPARATOR);
 define('MODPATH', realpath($modules).DIRECTORY_SEPARATOR);
 define('SYSPATH', realpath($system).DIRECTORY_SEPARATOR);
+define('KMODPATH', realpath($kommerce_modules).DIRECTORY_SEPARATOR);
 
 // Clean up the configuration vars
 unset($application, $modules, $system);
 
-if (file_exists('install'.EXT))
-{
-	// Load the installation check
-	return include 'install'.EXT;
-}
+// if (file_exists('install'.EXT))
+// {
+// 	// Load the installation check
+// 	return include 'install'.EXT;
+// }
 
 /**
  * Define the start time of the application, used for profiling.

@@ -1,0 +1,12 @@
+HTTP/1.0 503 Service Unavailable
+Cache-Control: no-cache
+Connection: close
+Content-Type: text/html
+
+<html><body>
+<div style="width: 350px; margin: 0 auto; padding: .25em 2em; text-align: center; border: 2px solid #ccc;">
+<p style="margin: .5em; font-size: 18px; font-weight: bold;">503 Service Unavailable</p>
+<p style="margin: .5em; font-size: 18px; font-weight: bold; color: red;">We're sorry, but something went wrong.</p>
+<p style="font-size: 16px; color: #666;">We've been notified about this issue and we'll take a look at it shortly.</p>
+</div>
+</body></html>
