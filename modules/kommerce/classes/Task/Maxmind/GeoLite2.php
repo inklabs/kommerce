@@ -40,7 +40,7 @@ class Task_Maxmind_GeoLite2 extends Minion_Task
 	}
 
 	protected function get_file($file) {
-		list($db_filename, $db_timestamp) = $this->_download($this->base_url . $file . '.mmdb.gz');
+		list($db_filename, $db_timestamp) = $this->_download($this->base_url . $file . '.mmdb.gz', $file);
 		$valid_md5 = $this->_download_output($this->base_url . $file . '.md5');
 
 		$db_filename = $this->gunzip($db_filename);
@@ -74,7 +74,7 @@ class Task_Maxmind_GeoLite2 extends Minion_Task
 		return $temp_filename;
 	}
 
-	protected function _download($url) {
+	protected function _download($url, $file_name) {
 		$temp_filename = tempnam('/tmp', 'maxmind_');
 		$fp = fopen($temp_filename, 'w');
 
@@ -89,10 +89,32 @@ class Task_Maxmind_GeoLite2 extends Minion_Task
 		curl_setopt($ch, CURLOPT_TIMEOUT, $this->curl_dl_timeout);
 		curl_setopt($ch, CURLOPT_FILETIME, TRUE);
 		curl_setopt($ch, CURLOPT_BINARYTRANSFER, TRUE);
+		// curl_setopt($ch, CURLOPT_BUFFERSIZE, 64000);
+		curl_setopt($ch, CURLOPT_NOPROGRESS, FALSE);
+		curl_setopt($ch, CURLOPT_PROGRESSFUNCTION,
+			function($resource, $download_size, $downloaded_size, $upload_size, $uploaded) use ($file_name) {
+				static $previous_progress = 0;
+
+				if ($download_size == 0) {
+					$progress = 0;
+				} else {
+					$progress = round(($downloaded_size * 100) / $download_size);
+				}
+
+				if ($progress > $previous_progress) {
+					$previous_progress = $progress;
+
+					echo $file_name , ': ' , str_pad($progress, 3, ' ', STR_PAD_LEFT) , "%\r";
+					ob_flush();
+				}
+			}
+		);
 		curl_setopt($ch, CURLOPT_FILE, $fp);
 
 		$success = curl_exec($ch);
 		$file_timestamp = curl_getinfo($ch, CURLINFO_FILETIME);
+
+		echo "\n";
 
 		curl_close($ch);
 		fclose($fp);
