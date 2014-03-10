@@ -1,0 +1,25 @@
+body {
+	background-color: #fff; font:14px/22px 'Helvetica Neue',Helvetica,Arial,Sans-Serif;
+	-webkit-font-smoothing:auto;
+	color: #515151;
+	padding: 0;
+	margin: 0;
+}
+
+img { height: auto; max-width: 100%; }
+
+#footer {
+	margin-top: 50px;
+	padding: 5px 0;
+	border-top: 2px solid black;
+	background-color: #333;
+	color: #888;
+	box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.2), 0 2px 2px rgba(0, 0, 0, 0.2);
+	font-family: futura-pt, sans-serif;
+	font-size: 14px;
+}
+
+h1 { color: #27313D; font-weight: bold; font-size: 34px; line-heigth: 48px; }
+h2 { color: #9099A3; font-size: 20px; line-height: 32px; }
+h2 span { color: #3E4956; font-weight: bolder; }
+h3 { color: #2E3846; font-weight: bold; font-size: 18px; line-heigth: 40px; }
