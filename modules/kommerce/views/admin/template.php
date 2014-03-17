@@ -12,6 +12,9 @@
 	<?=HTML::script('static/js/bootstrap-3.1.1.js')?>
 </head>
 <body>
+
+	<?=View::factory('helper/messages')?>
+
 	<div id="body">
 		<div class="container">
 			<?=$content?>
