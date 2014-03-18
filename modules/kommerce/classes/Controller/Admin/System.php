@@ -15,7 +15,7 @@ class Controller_Admin_System extends Controller_Admin_Template {
 
 		$key_counts = [];
 		foreach ($keys as $prefix) {
-			$key_counts[$prefix] = $redis->eval('return #redis.call("keys", "' . $prefix . '")');
+			$key_counts[$prefix] = $redis->eval('return table.getn(redis.call("keys", "' . $prefix . '"))');
 		}
 
 		$this->data['key_counts'] = $key_counts;
