@@ -63,6 +63,7 @@ More information can be found [here](http://inklabs.github.io/kommerce/).
 
 - [Intro to Vagrant with Kohana and Zen Kommerce](http://blog.jamieisaacs.com/2014/03/04/intro-to-vagrant-with-kohana-and-zen-kommerce/) - March 4, 2014
 - [Intro to Maxmind GeoLite2 with Kohana](http://blog.jamieisaacs.com/2014/03/10/intro-to-maxmind-geolite2-with-kohana/) - March 10, 2014
+- [Redis Sessions in PHP with Kohana](http://blog.jamieisaacs.com/2014/03/17/redis-sessions-in-php-with-kohana/) - March 17, 2014
 
 ## License
 
