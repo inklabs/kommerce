@@ -1,11 +1,11 @@
 Kommerce
 ========
 
-Kohana PHP E-commerce Platform
+Kohana PHP E-commerce frontend
 
 ## Introduction
 
-Zen Kommerce is a PHP shopping cart system written in the Kohana framework.
+Zen Kommerce is a PHP shopping cart frontend written in the Kohana framework using the [Zen Kommerce-Core](https://github.com/inklabs/kommerce-core) project.
 More information can be found [here](http://inklabs.github.io/kommerce/).
 
 ## Vagrant Setup
