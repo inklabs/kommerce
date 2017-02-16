@@ -110,6 +110,7 @@ cd libmaxminddb-0.5.3
 ./configure && \
 make && make install
 ldconfig /usr/local/lib/
+# echo "/usr/local/lib" >> /etc/ld.so.conf.d/usrlocal.conf
 
 # php-maxmind
 cd /usr/local/src
